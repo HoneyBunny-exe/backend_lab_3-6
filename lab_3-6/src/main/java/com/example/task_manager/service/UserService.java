@@ -1,17 +1,18 @@
 package com.example.task_manager.service;
 
+import com.example.task_manager.dto.UserDTO;
 import com.example.task_manager.model.User;
 
 import java.util.List;
 
 public interface UserService {
-	List<User> getAllUsers();
+	List<UserDTO> getAllUsers();
 
-	String createUser(User user);
+	String createUser(UserDTO user);
 
-	User getUser(Long id);
+	UserDTO getUser(Long id);
 
-	String updateUser(User user);
+	String updateUser(UserDTO user);
 
  	String deleteUser(Long id);
 }

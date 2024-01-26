@@ -6,10 +6,12 @@ import lombok.Data;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "task")
 @Data
+@AllArgsConstructor
 public class Task {
 	public Task(){}
 
@@ -25,10 +27,10 @@ public class Task {
 	private String taskDescription;
 
 	@Column(name = "start_date")
-	private LocalDate startDate;
+	private LocalDateTime startDate;
 
 	@Column(name = "finish_date")
-	private LocalDate finishDate;
+	private LocalDateTime finishDate;
 
 	@Column(name = "status")
 	private Boolean status;

@@ -1,5 +1,6 @@
 package com.example.task_manager.service;
 
+import com.example.task_manager.dto.TaskDTO;
 import com.example.task_manager.model.Task;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 public interface TaskService {
-	List<Task> getAllUserTasks(Long userId);
+	List<TaskDTO> getAllUserTasks(Long userId);
 
-	String createUserTask(Task task);
+	String createUserTask(TaskDTO dto);
 
-	Task getUserTask(Long taskId);
+	TaskDTO getUserTask(Long taskId);
 
-	String updateUserTask(Task task);
+	String updateUserTask(TaskDTO dto);
 
 	String deleteUserTask(Long taskId);
 

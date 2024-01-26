@@ -1,5 +1,6 @@
 package com.example.task_manager.controller;
 
+import com.example.task_manager.dto.TaskDTO;
 import com.example.task_manager.model.Task;
 import com.example.task_manager.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +16,23 @@ public class TaskController {
 	private TaskService service;
 
 	@GetMapping("")
-	public List<Task> getAllUserTasks(@RequestParam(name="user_id") Long userId){
+	public List<TaskDTO> getAllUserTasks(@RequestParam(name="user_id") Long userId){
 		return service.getAllUserTasks(userId);
 	}
 
 	@PostMapping("create_task")
-	public String createUserTask(@RequestBody Task task){
-		return service.createUserTask(task);
+	public String createUserTask(@RequestBody TaskDTO dto){
+		return service.createUserTask(dto);
 	}
 
 	@GetMapping("/{task_id}")
-	public Task getUserTask(@PathVariable(name="task_id") Long taskId) {
+	public TaskDTO getUserTask(@PathVariable(name="task_id") Long taskId) {
 		return service.getUserTask(taskId);
 	}
 
 	@PutMapping("update_task")
-	public String updateUserTask(@RequestBody Task task) {
-		return service.updateUserTask(task);
+	public String updateUserTask(@RequestBody TaskDTO dto) {
+		return service.updateUserTask(dto);
 	}
 
 	@DeleteMapping("delete_task/{task_id}")

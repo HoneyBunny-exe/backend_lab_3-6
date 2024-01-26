@@ -1,6 +1,7 @@
 package com.example.task_manager.controller;
 
 
+import com.example.task_manager.dto.UserDTO;
 import com.example.task_manager.model.User;
 import com.example.task_manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,23 +17,23 @@ public class UserController {
 	private UserService service;
 
 	@GetMapping("")
-	public List<User> getAllUsers(){
+	public List<UserDTO> getAllUsers(){
 		return service.getAllUsers();
 	}
 
 	@PostMapping("create_user")
-	public String createUser(@RequestBody User user){
-		return service.createUser(user);
+	public String createUser(@RequestBody UserDTO dto){
+		return service.createUser(dto);
 	}
 
 	@GetMapping("/{id}")
-	public User getUser(@PathVariable Long id){
+	public UserDTO getUser(@PathVariable Long id){
 		return service.getUser(id);
 	}
 
 	@PutMapping("update_user")
-	public String updateUser(@RequestBody User user){
-		return service.updateUser(user);
+	public String updateUser(@RequestBody UserDTO dto){
+		return service.updateUser(dto);
 	}
 
 	@DeleteMapping("delete_user/{id}")
