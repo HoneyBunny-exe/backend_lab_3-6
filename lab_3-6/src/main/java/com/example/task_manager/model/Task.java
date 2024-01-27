@@ -20,21 +20,21 @@ public class Task {
 	@GeneratedValue
 	private Long Id;
 
-	@Column(name = "task_name")
+	@Column(name = "task_name", nullable = false)
 	private String taskName;
 
 	@Column(name = "task_description")
 	private String taskDescription;
 
-	@Column(name = "start_date")
+	@Column(name = "start_date", nullable = false)
 	private LocalDateTime startDate;
 
-	@Column(name = "finish_date")
+	@Column(name = "finish_date", nullable = false)
 	private LocalDateTime finishDate;
 
-	@Column(name = "status")
+	@Column(name = "status", nullable = false)
 	private Boolean status;
 
-	@Column(name = "user_id")
+	@Column(name = "user_id", nullable = false)
 	private Long userId;
 }

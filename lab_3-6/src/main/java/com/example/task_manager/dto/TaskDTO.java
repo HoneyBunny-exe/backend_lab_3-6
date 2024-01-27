@@ -20,5 +20,5 @@ public class TaskDTO {
 	private Long userId;
 
 	// Только в dto, высчитываются в MappingUtils
-	private String duration; //Число от 1 до 10, 10 - самая приоритетная задача
+	private String duration;
 }

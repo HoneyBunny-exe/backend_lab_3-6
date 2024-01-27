@@ -1,6 +1,7 @@
 package com.example.task_manager.service.impl;
 
 import com.example.task_manager.dto.TaskDTO;
+import com.example.task_manager.exceptions.DoesntExistsException;
 import com.example.task_manager.model.Task;
 import com.example.task_manager.repository.TaskRepository;
 import com.example.task_manager.service.TaskService;
@@ -37,7 +38,10 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public TaskDTO getUserTask(Long taskId) {
-		return mapper.taskToTaskDTO(repository.findTaskById(taskId));
+		Task task = repository.findTaskById(taskId);
+		if(task != null)
+			return mapper.taskToTaskDTO(task);
+		throw new DoesntExistsException(String.format("Task with id=%d does not exist", taskId));
 	}
 
 	@Override
@@ -48,7 +52,9 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public String deleteUserTask(Long taskId) {
-		repository.deleteById(taskId);
+		Long status = repository.deleteTaskById(taskId);
+		if(status == 0)
+			throw new DoesntExistsException(String.format("Task with id=%d does not exist", taskId));
 		return String.format("Task with id=%d has been deleted(", taskId);
 	}
 }

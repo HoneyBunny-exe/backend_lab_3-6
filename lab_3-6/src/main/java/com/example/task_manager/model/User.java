@@ -3,6 +3,7 @@ package com.example.task_manager.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,7 +20,7 @@ public class User {
 	@GeneratedValue
 	private Long Id;
 
-	@Column(name="first_name")
+	@Column(name="first_name", nullable = false)
 	private String firstName;
 
 	@Column(name = "second_name")
